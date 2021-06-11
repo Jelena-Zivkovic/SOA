@@ -22,7 +22,7 @@ class AssetList extends Component {
         const assets = this.state.assets as AssetManagementModels.AssetListResource;
 
         const items = assets._embedded?.assets?.map((item) => (
-            <>
+            <div>
                 <li className="list__item">
                     <div className="item__icon">
                         <span className="iconMdsp asset" aria-hidden="true"></span>
@@ -37,7 +37,7 @@ class AssetList extends Component {
                         </div>
                     </div>
                 </li>
-            </>
+            </div>
         ));
         return (
             <div>
