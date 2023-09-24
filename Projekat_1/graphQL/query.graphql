@@ -1,0 +1,51 @@
+query allData {
+  getAll {
+    _id
+    DATE_TIME
+    PLANT_ID
+    SOURCE_KEY
+    DC_POWER
+    AC_POWER
+    DAILY_YIELD
+    TOTAL_YIELD
+  }
+}
+
+query GenerationById {
+  generationById(id: "64cf7c4f1afc5fb3a9e3d2d2") {
+    _id
+    DATE_TIME
+    PLANT_ID
+    SOURCE_KEY
+    DC_POWER
+    AC_POWER
+    DAILY_YIELD
+    TOTAL_YIELD
+  }
+}
+
+query SearchGenerationsByDailyYield {
+  searchGenerationsByDailyYield(daily_yield_from: 50, daily_yield_to: 52) {
+    _id
+    DATE_TIME
+    PLANT_ID
+    SOURCE_KEY
+    DC_POWER
+    AC_POWER
+    DAILY_YIELD
+    TOTAL_YIELD
+  }
+}
+
+query SearchGenerationsByTotalYield {
+  searchGenerationsByTotalYield(total_yield_from: 1, total_yield_to: 52000) {
+    _id
+    DATE_TIME
+    PLANT_ID
+    SOURCE_KEY
+    DC_POWER
+    AC_POWER
+    DAILY_YIELD
+    TOTAL_YIELD
+  }
+}

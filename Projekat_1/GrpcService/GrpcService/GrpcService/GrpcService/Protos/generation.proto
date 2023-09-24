@@ -1,0 +1,78 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package generation;
+
+// The generation service definition.
+service GenerationSer  {
+  rpc GetAll (Empty) returns (GetAllResponse);
+  rpc GetById (GetByIdRequest) returns (GetByIdResponse);
+  rpc Create (CreateRequest) returns (CreateResponse);
+  rpc Update (UpdateRequest) returns (UpdateResponse);
+  rpc Delete (DeleteRequest) returns (DeleteResponse);
+}
+
+// The request message containing the user's name.
+
+message Empty {
+
+}
+
+message Generation {
+	 string ID = 1;
+     string Date_time = 2;
+     string Plant_id = 3;
+     string Source_key = 4;
+     string Dc_power = 5;
+     string Ac_power = 6;
+     string Daily_yield = 7;
+     string Total_yield = 8;
+}
+
+message GetAllResponse {
+  repeated Generation data = 1;
+}
+
+message GetByIdRequest {
+  string Id = 1;
+}
+
+message GetByIdResponse {
+  string Result = 1;
+  Generation data =2;
+}
+message UpdateRequest {
+	 string ID = 1;
+     string Date_time = 2;
+     string Plant_id = 3;
+     string Source_key = 4;
+     string Dc_power = 5;
+     string Ac_power = 6;
+     string Daily_yield = 7;
+     string Total_yield = 8;
+}
+message UpdateResponse {
+  string Result = 1;
+  Generation data =2;
+}
+message DeleteRequest {
+  string Id = 1;
+}
+message DeleteResponse {
+  string Response = 1;
+}
+
+message CreateRequest {
+     string Date_time = 2;
+     string Plant_id = 3;
+     string Source_key = 4;
+     string Dc_power = 5;
+     string Ac_power = 6;
+     string Daily_yield = 7;
+     string Total_yield = 8;
+}
+message CreateResponse {
+  string Result = 1;
+  Generation data =2;
+}

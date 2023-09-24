@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+  analyticswebservice:
+    image: ${DOCKER_REGISTRY-}analyticswebservice
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+  mosquitto:
+    image: eclipse-mosquitto
+    ports:
+      - "0.0.0.0:1883:1883"
+    container_name: mosquitto
+    hostname: mosquitto
+    volumes:
+     - "./conf:/mosquitto/config"
+
+  sensordata:
+    image: sensordataa
+
+  kuiper:
+    image: lfedge/ekuiper
+    container_name: ekuiper
+    user: root
+    ports:
+      - "9081:9081"
+    environment:
+      - MQTT_SOURCE__DEFAULT__SERVER=tcp://test.mosquitto.org:1883
+
+
